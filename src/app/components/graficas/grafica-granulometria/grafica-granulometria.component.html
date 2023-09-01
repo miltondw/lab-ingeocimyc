@@ -1,0 +1,16 @@
+<div class="content-chart">
+  <p class="curva">CURVA GRANULOMÉTRICA</p>
+  <div class="chart-content">
+     <p class="n-golpes">PASA(%)</p>
+     <canvas
+       baseChart
+       class="chart"
+       [data]="lineChartData"
+       [options]="lineChartOptions"
+       [type]="lineChartType"
+       resize
+       #chartCanvas
+     ></canvas>
+   </div>
+   <p class="p-humedad">SERIE DE TAMICES ESTÁNDAR</p>
+ </div>

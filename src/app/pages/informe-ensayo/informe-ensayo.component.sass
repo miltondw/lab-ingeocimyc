@@ -1,0 +1,358 @@
+.loading
+  position: absolute
+  top: 4.4rem
+  right: 1rem
+  display: flex
+  gap: 1rem
+  align-items: center
+
+.ensayos
+  display: grid
+
+  .pdfEnsayo
+    padding: 0
+    border: 35px solid #9f9f9f
+    margin: 3rem 0
+
+  & > header
+    margin-bottom: 4.5rem
+
+  .limites
+    .content-carts
+      display: grid
+      margin-top: 3rem
+      width: 100%
+      justify-items: center
+
+      .carts-limites
+        width: 100%
+        position: relative
+        top: 3.8rem
+        display: grid
+        grid-template-columns: 40% 60%
+        gap: 3rem
+        left: 1rem
+
+        .datos
+          gap: 1rem
+          justify-content: center
+          margin-bottom: 3rem
+          margin-top: 5rem
+          position: relative
+          bottom: 5.8rem
+          display: grid
+          grid-template-columns: 1fr 1fr
+          justify-items: center
+          align-items: center
+          font-size: 17px
+          left: 7rem
+          width: 76%
+
+          .limite
+            font-weight: 500
+            border-bottom: 2px solid #999999
+            width: fit-content
+            margin: 0
+            padding: 10px
+            white-space: nowrap
+
+            span
+              padding: 5px
+              background: rgb(43, 154, 166)
+              color: #fff
+              border-radius: 5px
+
+            &:first-child span
+              background: rgb(43, 154, 166)
+
+            &:last-child
+              grid-area: 2 / span 2
+              span
+                background: #010101
+
+        .grafica-limites
+          position: relative
+          top: -17%
+          left: 14%
+
+        .liquido-plastico
+          display: flex
+          width: 125%
+          gap: 1rem
+          margin-bottom: 3.1rem
+          position: relative
+          left: 3px
+
+          table
+            tr
+              td:first-child
+                text-align: left !important
+
+          h2
+            background: rgb(43, 154, 166)
+            color: #ffff
+            font-size: 21px
+            font-weight: 500
+            text-align: center
+            margin: 0
+            padding: 3px 0
+
+          .content-liquido
+            width: 60%
+
+            .limite span
+              background: rgb(43, 154, 166)
+              color: #fff
+
+          .content-plastico
+            width: 60%
+
+            .limite span
+              background: #858585
+
+      table
+        height: 530px !important
+        border: 3px solid #9f9f9f
+        border-top: 0
+
+      .carts-granulometria
+        position: relative
+        top: 3rem
+        display: flex
+        width: 100%
+        align-items: center
+
+        .grafica-2
+          position: relative
+          top: -2.5rem
+
+        .grafica-granulometria
+          position: relative
+          top: -2rem
+          left: 1.2rem
+
+        .data
+          display: grid
+          width: 49%
+          margin-bottom: 3rem
+          margin-left: 1rem
+
+          & > div
+            position: relative
+            bottom: 2.5rem
+            left: -7.5%
+
+          table
+            tr
+              td
+                &:nth-child(2)
+                  font-weight: 900 !important
+                &:nth-child(3)
+                  font-weight: 900 !important
+
+          .granulometria
+            margin: 0
+            background: rgb(43, 154, 166)
+            color: #fff
+            padding: 0.3rem
+            font-size: 21px
+            text-align: center
+            font-weight: 500
+
+          table
+            height: 630px !important
+
+        ul
+          list-style: none
+          display: grid
+          gap: 1rem
+          grid-template-columns: repeat(3, 170px)
+          margin: 3.7rem 0
+          padding: 0
+          justify-content: center
+          font-size: 18px
+
+          li
+            width: fit-content
+            border-bottom: 2px solid #9f9f9f
+            padding-bottom: 10px
+            margin: 0.5rem auto
+            white-space: nowrap
+
+            span
+              border-radius: 5px
+              font-weight: 500
+
+            &:nth-child(4) span
+              background: rgb(43, 154, 166)
+              color: #fff
+              padding: 5px
+
+            &:nth-child(5) span
+              background: rgb(43, 154, 166)
+              color: #fff
+              padding: 5px
+
+            &:last-child span
+              background: #0066648f
+              color: #fff
+              padding: 5px
+
+        .sucs
+          font-size: 18px
+          position: relative
+          left: 4%
+          top: -2rem
+
+          mat-form-field.mat-mdc-form-field
+            width: 100%
+
+          p
+            font-weight: 900
+            display: grid
+            text-align: center
+
+            span
+              font-weight: 400
+              border-bottom: 2px solid #9f9f9f
+              padding-bottom: 10px
+              margin-top: 10px
+              text-align: left
+              font-size: 16px
+
+  .firma-content
+    width: 95%
+    margin: auto
+    margin-top: 5.5rem
+
+    .observation
+      display: flex
+      font-size: 21px
+      font-weight: 900
+      margin-bottom: 4rem
+
+      span
+        display: block
+        width: 100%
+        min-height: 10px
+        border-bottom: 2px solid #9f9f9f
+
+    .firmas
+      display: grid
+      grid-template-columns: repeat(2, 500px)
+      justify-content: space-between
+      align-items: stretch
+      margin-bottom: 0
+
+      .firma
+        .elaboro
+          display: flex
+          font-weight: 600
+          margin-bottom: 2rem
+
+          span
+            display: block
+            width: 100%
+            min-height: 10px
+            border-bottom: 2px solid #9f9f9f
+
+        p
+          span
+            font-weight: 600
+
+h2
+  text-transform: uppercase
+
+th, td
+  text-transform: capitalize
+
+table tr td:first-child
+  font-weight: 900
+
+.header-principal
+  width: 95%
+  position: relative
+  left: 2.4%
+
+  .header
+    display: flex
+    border: 5px solid #999999
+    border-top: none
+
+    img
+      width: 250px
+      margin: 0
+      padding: 8px
+
+    .title
+      width: 100%
+      padding: 0
+      margin: 0
+      border-radius: 0
+
+      h2, h3, p
+        font-size: 16px
+        margin: 20px 0
+        padding: 0
+        border-bottom: 1px solid #cdcdcd
+        padding-bottom: 5px
+        font-weight: 500
+
+      h2
+        font-size: 20px
+        font-weight: 900
+
+      p
+        border-bottom: none
+        padding: 0
+        margin: 0
+        padding-bottom: 10px
+
+  .content-data
+    display: grid
+    grid-template-columns: 1fr 1fr
+    gap: 1.5rem
+    margin-top: 1.5rem
+    column-gap: 3rem
+    width: 99%
+
+    & > p:first-child
+      grid-area: 1 / span 2
+      display: flex !important
+      align-items: center
+      gap: 2rem !important
+
+    p
+      text-transform: uppercase
+      margin: 0
+      padding: 0
+      display: flex
+      border-bottom: 2px solid #9f9f9f
+      column-gap: 14%
+      font-size: 15px
+      padding-bottom: 1rem
+
+      span
+        font-weight: 900
+        font-size: 18px
+
+    .date
+      column-gap: 35%
+
+    .sondeo-capa
+      display: flex
+      gap: 1rem
+      grid-area: 4 / span 2
+      margin: auto
+      text-decoration: none
+      color: inherit
+      transition: transform 0.5s
+
+      &:hover
+        transform: scale(1.1)
+        color: #008380
+        transition: transform 0.5s
+
+      p
+        justify-content: center !important
+        gap: 1rem

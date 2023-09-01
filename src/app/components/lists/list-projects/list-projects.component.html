@@ -1,0 +1,83 @@
+<mat-form-field style="margin-top: 1rem">
+  <mat-label>Filtro</mat-label>
+  <input matInput (keyup)="applyFilter($event)" #input />
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container *ngFor="let item of itemsList" [matColumnDef]="item[0]">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ item[1] }}</th>
+      <ng-container *ngIf="item[0] == 'date'; else elseBlock">
+        <td mat-cell *matCellDef="let row">
+          {{ row[item[0]] | date : "dd-MM-yyyy" }}
+        </td>
+      </ng-container>
+      <ng-template #elseBlock>
+        <td mat-cell *matCellDef="let row">
+          <ng-container *ngIf="item[0] === 'title'; else defaultContent">
+            <a
+              mat-cell
+              [routerLink]="['/lab/ensayo', row?.id]"
+              [queryParams]="{ sondeo: 1, muestra: 1 }"
+            >
+              {{ row?.title }}
+            </a>
+          </ng-container>
+          <ng-container *ngIf="item[0] === 'inf'">
+            <a mat-cell [routerLink]="['/lab/informe', row?.id]"> Informe </a>
+          </ng-container>
+
+          <ng-container *ngIf="item[0] === 'edit'">
+            <button mat-mini-fab color="warn" (click)="deleteProject(row?.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+            <a
+              mat-mini-fab
+              color="primary"
+              style="background: #29d9c2; margin-left: 10px"
+              [routerLink]="['/lab/edit/proyecto', row?.id]"
+            >
+              <mat-icon>edit </mat-icon>
+            </a>
+          </ng-container>
+
+          <ng-template #defaultContent>
+            <ng-container
+              *ngIf="item[0] === 'solicitante'; else defaultContent"
+            >
+              <span
+                [innerHTML]="row[item[0]].name + ' ' + row[item[0]].lastname"
+              ></span>
+              <span>{{ row[item[0]].id }}</span>
+            </ng-container>
+
+            <ng-template #defaultContent>
+              {{ row[item[0]] }}
+            </ng-template>
+          </ng-template>
+        </td>
+      </ng-template>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">
+        No existen coincidencias para "{{ input.value }}"
+      </td>
+    </tr>
+  </table>
+
+  <mat-paginator
+    #paginator
+    (page)="handlePageEvent($event)"
+    [length]="length"
+    [pageSize]="pageSize"
+    [disabled]="disabled"
+    [showFirstLastButtons]="showFirstLastButtons"
+    [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+    [hidePageSize]="hidePageSize"
+    [pageIndex]="pageIndex"
+  ></mat-paginator>
+</div>

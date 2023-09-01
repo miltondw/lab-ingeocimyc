@@ -1,0 +1,93 @@
+@import "@angular/material/prebuilt-themes/indigo-pink"
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;800&display=swap')
+
+html
+  height: 100%
+  overflow-x: hidden
+
+body
+  height: 100%
+  overflow-x: hidden
+  margin: 0
+  font-family: Roboto, "Helvetica Neue", sans-serif
+  position: relative
+
+*
+  font-family: 'Open Sans', sans-serif
+  letter-spacing: 0.1em
+
+.content-form_h_g,
+.content-form_l_p
+  .mat-mdc-form-field
+    display: -webkit-inline-box !important
+    margin: 0.5rem 0 !important
+    //width: 135px !important
+
+.footer
+  .observaciones
+    margin-top: 1rem
+    padding: 0 1rem
+    box-shadow: 0px 7px 5px 1px #ccc
+    textarea
+      height: 54px
+      width: 100%
+      resize: none
+
+.title
+  background: #2b9aa6
+  color: white
+  font-size: 18px
+  padding: 1rem
+  border-radius: 5px
+  text-align: center
+  margin: 0
+
+th
+  text-align: center !important
+  font-size: 18px !important
+  border-bottom: 1px solid #9f9f9f !important
+
+td
+  text-align: center !important
+  border-bottom: 1px solid #9f9f9f !important
+
+.btn_primary
+  height: fit-content
+  padding: 0.7rem
+  background: #b1d476
+  color: white
+  border: none
+  border-radius: 5px
+  font-size: 18px
+  transition: 600ms transform
+  width: 100%
+  margin-top: 1rem
+  cursor: pointer
+  &:hover
+    background: #8ba460
+  &:active
+    transform: scale(0.9)
+    transition: 600ms transform
+
+.titles
+  display: grid
+  justify-content: space-around
+  border-bottom: 1px solid #9f9f9f
+  grid-template-columns: 1fr 1fr
+  gap: 2rem
+
+  h3:first-child
+    border-right: 1px solid #9f9f9f
+    margin: 0
+    display: flex
+    place-items: center
+    place-content: center
+
+.content-ensayo
+  .mat-mdc-form-field
+    margin-top: 10px
+    height: 70px
+  td.mat-mdc-cell.mdc-data-table__cell.cdk-cell.cdk-column-prueba.mat-column-prueba.ng-star-inserted
+    width: 30% !important
+  .mat-mdc-form-field
+    max-width: 130px

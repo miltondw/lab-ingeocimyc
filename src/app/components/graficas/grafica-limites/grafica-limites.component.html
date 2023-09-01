@@ -1,0 +1,15 @@
+<div class="content-chart">
+    <div class="chart-content">
+        <p class="n-golpes">NUMERO DE GOLPES</p>
+        <canvas
+          baseChart
+          class="chart"
+          [data]="lineChartData"
+          [options]="lineChartOptions"
+          [type]="lineChartType"
+          resize
+          #chartCanvas
+        ></canvas>
+      </div>
+      <p class="p-humedad">CONTENIDO DE HUMEDAD %</p>
+    </div>

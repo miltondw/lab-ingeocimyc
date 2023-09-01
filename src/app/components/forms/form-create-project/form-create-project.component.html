@@ -1,0 +1,81 @@
+<form [formGroup]="form">
+  <mat-form-field appearance="outline">
+    <mat-label>Nombre del Proyecto</mat-label>
+    <input matInput autocomplete="organization-title" formControlName="title" />
+  </mat-form-field>
+  <mat-error
+    *ngIf="
+      form.get('title')?.hasError('required') && form.get('title')?.touched
+    "
+  >
+    Este campo es requerido
+  </mat-error>
+  <mat-form-field appearance="outline">
+    <mat-label>Localización</mat-label>
+    <input matInput autocomplete="street-address" formControlName="location" />
+  </mat-form-field>
+  <mat-error
+    *ngIf="
+      form.get('location')?.hasError('required') &&
+      form.get('location')?.touched
+    "
+  >
+    Este campo es requerido
+  </mat-error>
+  <mat-form-field appearance="outline">
+    <mat-label>referencia</mat-label>
+    <input matInput autocomplete="street-address" formControlName="reference" />
+  </mat-form-field>
+  <mat-error
+    *ngIf="
+      form.get('reference')?.hasError('required') &&
+      form.get('reference')?.touched
+    "
+  >
+    Este campo es requerido
+  </mat-error>
+  <div class="solicitante">
+    <mat-form-field appearance="outline">
+      <mat-label>solicitante</mat-label>
+      <input
+        matInput
+        autocomplete="street-address"
+        (input)="solicitanteName($event)"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Solicitantes</mat-label>
+      <mat-select
+        [(value)]="selectedSolicitante"
+        formControlName="solicitante_id"
+      >
+        <mat-option
+          *ngFor="let solicitante of solicitantes"
+          [value]="solicitante.id"
+          >{{ solicitante.name }} - {{ solicitante.id }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+    <mat-error
+      *ngIf="
+        form.get('solicitante_id')?.hasError('required') &&
+        form.get('solicitante_id')?.touched
+      "
+    >
+      Este campo es requerido
+    </mat-error>
+    <mat-form-field appearance="outline">
+      <mat-label>Cantidad de sondeos</mat-label>
+      <input
+        matInput
+        autocomplete="on"
+        type="number"
+        formControlName="probes"
+      />
+    </mat-form-field>
+  </div>
+
+  <button class="btn_primary" (click)="onSubmit()">
+    {{ !project_id ? "Enviar" : "Actualizar" }}
+  </button>
+</form>

@@ -1,0 +1,76 @@
+<form [formGroup]="form">
+  <div class="content_fields">
+    <p *ngIf="project?.title">
+      Proyecto: <span>{{ project?.title }} </span>
+    </p>
+    <p *ngIf="project?.location">
+      Localización: <span>{{ project?.location }} </span>
+    </p>
+    <p *ngIf="project?.solicitante_id">
+      Solicitante:
+      <span>
+        {{ project?.solicitante.name }}
+        {{ project?.solicitante.lastname }}
+      </span>
+    </p>
+    <p class="date" *ngIf="project?.date">
+      Fecha: <span>{{project?.date | date : "dd-MM-yyyy" }}</span>
+    </p>
+    <div class="content_field">
+      <p>
+        Sondeo N°: <span>{{ sondeo }} </span>
+      </p>
+      <p>
+        Muestra: <span>{{ muestra }} </span>
+      </p>
+    </div>
+    <div class="content_field">
+      <p *ngIf="!edit">
+        Peso Muestra H: <span>{{ values?.sample_weight }} </span>
+      </p>
+      <mat-form-field appearance="outline" *ngIf="edit">
+        <mat-label>Peso Muestra H</mat-label>
+        <input matInput formControlName="sample_weight" type="number" />
+      </mat-form-field>
+    </div>
+    <div class="content_field">
+      <p *ngIf="!edit">
+        Peso Tara: <span>{{ values?.tare_weight }} </span>
+      </p>
+      <mat-form-field appearance="outline" *ngIf="edit">
+        <mat-label>Peso Tara</mat-label>
+        <input matInput formControlName="tare_weight" type="number" />
+      </mat-form-field>
+    </div>
+    <button class="btn_primary" *ngIf="edit" type="button" (click)="onSubmit()">
+      Guardar
+    </button>
+    <button
+      class="btn_primary"
+      *ngIf="!edit"
+      type="button"
+      (click)="onActiveEdit()"
+    >
+      Editar
+    </button>
+    <div class="muestras">
+    <button  mat-raised-button color="primary" class="add-muestra"  (click)="onCreateMuestra()" >
+        Añadir Muestra
+    </button>
+    <mat-tab-group>
+    <mat-tab label="Muestras">  
+      <ul>
+         <li *ngFor="let muestra of getMuestrasArray()">
+           <button mat-raised-button color="accent" (click)="navigateToEnsayo(muestra)">{{ muestra }}</button>
+         </li>
+       </ul>
+    </mat-tab>
+    <mat-tab label="Sondeos"><ul>
+      <li *ngFor="let sondeos of getSondeosArray()">
+        <button mat-raised-button color="accent" (click)="navigateToSondeo(sondeos)">{{ sondeos }}</button>
+      </li>
+    </ul> </mat-tab>
+    </mat-tab-group>
+    </div>
+  </div>
+</form>

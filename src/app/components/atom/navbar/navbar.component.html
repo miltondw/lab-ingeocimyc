@@ -1,0 +1,39 @@
+<mat-toolbar
+  style="background: #008380;"
+>
+  <button style="margin:1rem" mat-raised-button [matMenuTriggerFor]="menu">Menu</button>
+  <span style="color:white" >Laboratorio Ingeocimyc</span>
+  <span class="example-spacer"></span>
+  <img src="/assets/logo-ingeocimyc.svg" width="70" height="70" alt="logo Ingeocimyc" style="position: absolute; right: 1rem;">
+  <!--<button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>share</mat-icon>
+  </button> -->
+</mat-toolbar>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="create">Crear</button>
+  <button mat-menu-item [matMenuTriggerFor]="lista">Lista</button>
+</mat-menu>
+
+<mat-menu #create="matMenu">
+  <a
+    *ngFor="let item of itemCreate"
+    mat-menu-item
+    (click)="activeNav=!activeNav"
+    routerLinkActive="active"
+    [routerLink]="'lab/crear/'+item"
+    >
+    {{item}}
+  </a>
+</mat-menu>
+
+<mat-menu #lista="matMenu">
+  <a
+    *ngFor="let item of itemList"
+    mat-menu-item
+    (click)="activeNav=!activeNav"
+    routerLinkActive="active"
+    [routerLink]="'lab/list/'+item"
+    >
+    {{item}}
+  </a>
+</mat-menu>

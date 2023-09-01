@@ -1,0 +1,42 @@
+<div class="content-ensayo">
+  <h2 class="title">Granulometría</h2>
+  <form [formGroup]="form">
+    <div class="titles">
+      <h3>Tamiz</h3>
+      <h3>Peso Retenido</h3>
+    </div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="pulgada">
+        <th mat-header-cell *matHeaderCellDef>pulg</th>
+        <td mat-cell *matCellDef="let element">{{ element.pulgada }}</td>
+      </ng-container>
+      <ng-container matColumnDef="mm">
+        <th mat-header-cell *matHeaderCellDef>mm</th>
+        <td mat-cell *matCellDef="let element">{{ element.mm }}</td>
+      </ng-container>
+      <ng-container matColumnDef="gr">
+        <th mat-header-cell *matHeaderCellDef>gr</th>
+        <td mat-cell *matCellDef="let element">
+          <p *ngIf="edit">
+            {{values.tamices[element.gr]?values.tamices[element.gr]:0}}
+          </p>
+          <mat-form-field appearance="outline" *ngIf="!edit" >
+            <mat-label>Gr</mat-label>
+            <input type="number" matInput [formControlName]="element.gr">
+          </mat-form-field>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <ng-container >
+      <button class="btn_primary"  (click)="onSubmit()" *ngIf="!edit">
+        Guardar
+      </button>
+       <button class="btn_primary"  (click)="activeEdit()" *ngIf="edit">
+           editar
+        </button>
+    </ng-container>
+  </form>
+
+<div>
